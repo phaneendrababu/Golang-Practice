@@ -9,32 +9,30 @@ type contactInfo struct {
 type person struct {
 	firstName string
 	lastName  string
-	contcat   contactInfo
+	contactInfo
 }
 
-/*type person struct {
-	firstName string
-	lastName  string
-}*/
-
 func main() {
-	/*alex := person{firstName: "Alex", lastName: "Anderson"}
-	fmt.Println(alex)*/
-	/*var alex person
-	alex.firstName = "Alex"
-	alex.lastName = "Anderson"
-	fmt.Println(alex)
-	fmt.Printf("%+v", alex)*/
 
 	jim := person{
 		firstName: "Jim",
 		lastName:  "Party",
-		contcat: contactInfo{
+		contactInfo: contactInfo{
 			email:   "jim@gmail.com",
 			zipcode: 50010,
 		},
 	}
 
-	fmt.Println(jim)
-	fmt.Printf("%+v", jim)
+	jim.updateFirstName("jimmy")
+	jim.print()
+
+}
+
+//No effect on firstName
+func (p person) updateFirstName(newFirstName string) {
+	p.firstName = newFirstName
+}
+
+func (p person) print() {
+	fmt.Printf("%+v", p)
 }
