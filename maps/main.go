@@ -4,11 +4,18 @@ import "fmt"
 
 func main() {
 
-	colors := map[string]string{
-		"red":  "#e4f5g6",
-		"blue": "#e3g904",
-	}
-	delete(colors, "red")
-	fmt.Println(colors)
+	colors := make(map[string]string)
 
+	colors["red"] = "#e4f5g6"
+	colors["blue"] = "#e3g904"
+	colors["white"] = "#fffff"
+
+	//fmt.Println(colors)
+	printMap(colors)
+}
+
+func printMap(colors map[string]string) {
+	for color, hexCode := range colors {
+		fmt.Println("hexcode of ", color, "is ", hexCode)
+	}
 }
